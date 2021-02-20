@@ -15,8 +15,18 @@
 -   fork, PR, issue
 -   .gitignore, .git
 -   branch, merge
+-   checkout
+-   tag
+-   amend
+-   stash
+-   revert
+-   bisect
+-   rebase
+-   squash
+-   Chery-pick
+-   git flow
 -   common commands
-
+-   conclusion
 -   further read
 
 # what do we do now? Manual version controlling by programmer
@@ -100,6 +110,10 @@
 
 ![](images/push-meme.png)
 
+
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--NUSRQ-3J--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.redd.it/5iphhycu0io11.png)
+
 # fork
 
 ![fork](images/fork.png)
@@ -132,11 +146,29 @@ Good site: [gitignore.io](https://www.gitignore.io/)
 
 ---
 
+
+
+# is git running in background?
+
++ background process?
++ what is **tracking** mean?
+
+
+
 # branch
 
 ![](https://www.nobledesktop.com/image/gitresources/git-branches-merge.png)
 
--
++ keep master branch stable
++ development branch
++ feature branch 
++ bug-fix branch
+
+
+
+![](/home/roozbeh/proj/ie-ta/IE/TA-class/images/favorite-branch.png)
+
+
 
 # merge
 
@@ -144,9 +176,143 @@ Good site: [gitignore.io](https://www.gitignore.io/)
 
 # merge conflict
 
++ what if we can merge?
++ some developers changed same file
++ somebody should combine changes
++ with help of merge-tool
+
+
+
 ![](https://lh6.googleusercontent.com/proxy/EXZtnMuZcVrMmQ1YJ1vdyoadiEy-FQtUocRc5mWiOqUgcxp5SlJ-T-Bs8dFERfxym7E7U6SebY1PJRx9OYPJ5gtFrDPMMFF-)
 
+
+
+
+
+#### didn't understand? want a review? view [this](https://medium.com/hackernoon/a-gentle-introduction-to-git-and-github-the-eli5-way-43f0aa64f2e4)
+
+
+
+
+
+# checkout 
+
++ switch another branch 
++ view an old commit
++ reset a file to a specific commit version
+
+![checkuot](https://static.javatpoint.com/tutorial/git/images/git-checkout.png)
+
+
+
+# tag
+
++ commits doesn't have a name 
++ specify special commits 
++ which commit is last working version?
++ how to handle versions? 
+
+![](https://miro.medium.com/max/638/1*CW-G-2zVFpEfEZNOTBvT0g.jpeg)
+
+
+
+# amend
+
++ re-writing history 
++ change commit message 
++ change commited fils
+
 ### don't rewrite history (especially for published commits)
+
+
+
+# stash 
+
++ save uncommitted changes 
++ different options for uncommitted, ignored, staged 
+
+![](https://static.javatpoint.com/tutorial/git/images/git-stash.png)
+
+
+
+
+
+# revert
+
++ undo last commit changes
+
++ with a brand-new commit 
+
+  ![](https://www.blog.nakulrajput.com/wp-content/uploads/2018/10/Git-Reverting-Resetting.jpg)
+
+  
+
+
+
+
+
+# bisect
+
+![](https://files.virgool.io/upload/users/195916/posts/kiybjsojv6cf/amufcdey5v9x.png)
+
+
+
+
+
+# rebase 
+
++ instead of merge
++ combine history with adding old commits 
++ interactive mode: select some commits
++ be careful: might re-write history 
+
+![rebase](https://miro.medium.com/max/603/1*75GIyh005_Wl9vRQF3tgTQ.png)
+
+# squash 
+
++ not a git command 
++ a term in using rebase
++ group specific changes to one commit 
+
+
+
+# cherry-pick
+
++ add other branch's commit to current branch
+
+![](https://www.syntevo.com/doc/download/attachments/6979705/workflows-cherrypick.png?version=1&modificationDate=1443735398000&api=v2)
+
+
+
+
+
+
+
+# git flow 
+
++ whats masters do with git branches?
+
++ set of rules to use branching better
+
+  ![](https://miro.medium.com/max/2880/1*9yJY7fyscWFUVRqnx0BM6A.png)
+
+  
+
+  + Master is production ready
+
+  - Master is deployed to production
+  - Development happens in a development branch, which in turn has feature branches
+  - Deploy when the development of a release is finished and validated
+  - Requires a validation for each release
+
++ automated tools: set of aliases
+
++ nothing to worry about
+
+
+
+
+
 
 # common commands
 
@@ -199,30 +365,49 @@ git checkout destination
 git merge source
 git mergetool # open the merge tool
 
+# get help 
+curl http:/cheat.sh/git
+man git-add
+info git-add
+
+
 rm -rf .git # get rid of git!
 ```
+
+
+
+# conclusion
+
++ search
++ read help & documentation
++ don't fear
++ everything messed up: re-clone whole project and delete current folder
++ test new command in a toy repository
++ don't commit large files
++ don't re-write public history 
++ pull before push, pull before start coding
++ alias for your useful command could be good
+
+
 
 # further read
 
 -   [Parsa's really good slides](http://slides.com/parsahejabi/git#/1)
-
 -   [Amir's awesome slides](https://github.com/amirhallaji/My-Learning/tree/master/git)
-
 -   [very good cheat sheet](https://github.com/arslanbilal/git-cheat-sheet)
-
 -   [this Github io page](https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html)
-
 -   [command by command explain](https://recompilermag.com/issues/issue-1/how-to-teach-git/)
-
 -   [Jadi's videos](https://faradars.org/courses/fvgit9609-managed-distributed-edition-using-git)
-
 -   [step by step](https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html)
-
 -   [this good slide](https://courses.cs.washington.edu/courses/cse403/13au/lectures/git.ppt.pdf)
-
 -   [tags](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag)
-
 -   [git-scm](https://git-scm.com/)
+
+
+
+---------
+
+
 
 
 Make PDF from this markdown file:
