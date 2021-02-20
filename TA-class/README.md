@@ -1,3 +1,3 @@
 # TA class slides
 
-1. [git](git)
+1. [git](git.md)
