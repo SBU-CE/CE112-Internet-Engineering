@@ -73,7 +73,7 @@ public class SampleTest {
             HttpRequest hr = new HttpRequest(url, HttpRequestMethod.POST);
             HttpResponse httpResponse = hr.request();
             //assertFalse(200 == httpResponse.getStatus());
-        } catch (IOException | HttpException e) {
+        } catch (IOException | HttpException | RuntimeException e) {
             // thats ok
         }
     }
