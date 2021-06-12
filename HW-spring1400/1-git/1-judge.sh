@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e 
+set -e
 
 
 mkdir cleaned || true
@@ -31,13 +31,12 @@ for folder in ./9* ; do
     echo "--> file:"
     cat homework.txt
 
-
-    echo "\n--> .gitignore :"
+    echo ""
+    echo "--> .gitignore :"
     cat .gitignore || echo "**no gitignore**"
     echo ""
 
 
-    #bash 
     read -n1 -r -p "Press any key to next..." key
 
     cd ..
