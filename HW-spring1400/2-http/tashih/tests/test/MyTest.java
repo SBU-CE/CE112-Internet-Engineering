@@ -4,6 +4,7 @@ import main.HttpRequestMethod;
 import main.HttpResponse;
 
 import org.junit.*;
+import org.junit.rules.*;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +21,8 @@ public class MyTest {
     final static String anythingUrl = "http://httpbin.org/anything";
     final static String url = anythingUrl;
 
-    final static String statusUrl = "http://httpbin.org/status";
+    @Rule
+    public Timeout timeout = new Timeout(30, java.util.concurrent.TimeUnit.SECONDS);
 
     @Test
     public void oneParamConsTest() {
@@ -81,43 +83,46 @@ public class MyTest {
         HttpResponse httpResponse = hr.request();
         assertEquals(200, httpResponse.getStatus());
     }
+    @Test
+    public void statusOK() throws Exception {
+        HttpRequest hr = new HttpRequest(anythingUrl, HttpRequestMethod.GET);
+        HttpResponse httpResponse = hr.request();
+        assertTrue(httpResponse.getStatus()<300);
+        assertTrue(httpResponse.getStatus()>100);
+    }
 
     @Test
     public void status200() throws Exception {
         final int code = 200;
-        HttpRequest hr = new HttpRequest(statusUrl + "/" + code, HttpRequestMethod.GET);
-        HttpResponse httpResponse = hr.request();
-        assertEquals(code, httpResponse.getStatus());
-    }
-    @Test
-    public void status203() throws Exception {
-        final int code = 203;
-        HttpRequest hr = new HttpRequest(statusUrl + "/" +code, HttpRequestMethod.GET);
+        HttpRequest hr = new HttpRequest(anythingUrl, HttpRequestMethod.GET);
         HttpResponse httpResponse = hr.request();
         assertEquals(code, httpResponse.getStatus());
     }
 
     @Test
-    public void status300() throws Exception {
-        final int code = 300;
-        HttpRequest hr = new HttpRequest(statusUrl + "/" +code, HttpRequestMethod.GET);
+    public void status301() throws Exception {
+        final int code = 301;
+        // it redirects to www.google.com
+        HttpRequest hr = new HttpRequest("http://www.stackoverflow.com/", HttpRequestMethod.GET);
         HttpResponse httpResponse = hr.request();
         assertEquals(code, httpResponse.getStatus());
     }
 
-    @Test(expected=HttpException.class)
-    public void status400() throws Exception {
-        final int code = 400;
-        HttpRequest hr = new HttpRequest(statusUrl + "/" +code, HttpRequestMethod.GET);
+    //@Test(expected=HttpException.class)
+    public void status406() throws Exception {
+        final int code = 406;
+        // banned by google
+        HttpRequest hr = new HttpRequest("http://ifconfig.com/", HttpRequestMethod.GET);
+        HttpResponse httpResponse = hr.request();
+    }
+    //@Test(expected=HttpException.class)
+    public void status503() throws Exception {
+        final int code = 503;
+        // by now its giving 503, let's hope it remains :))
+        HttpRequest hr = new HttpRequest("http://www.ifconfig.co", HttpRequestMethod.GET);
         HttpResponse httpResponse = hr.request();
     }
 
-    @Test(expected=HttpException.class)
-    public void status500() throws Exception {
-        final int code = 500;
-        HttpRequest hr = new HttpRequest(statusUrl + "/" +code, HttpRequestMethod.GET);
-        HttpResponse httpResponse = hr.request();
-    }
 
     @Test
     public void queryParam1() throws Exception {
@@ -169,12 +174,12 @@ public class MyTest {
     @Test
     public void postData2() throws Exception {
         HttpRequest hr = new HttpRequest(anythingUrl, HttpRequestMethod.POST);
-        hr.setBody(new HashMap<>(Map.of("keyy", "vall", "some random key", "some random value")));
+        hr.setBody(new HashMap<>(Map.of("keyy", "vall", "somerandomkey", "somerandomvalue")));
         hr.setHeaders(new HashMap<>(Map.of("Content-Type", "application/json"))); 
         HttpResponse httpResponse = hr.request();
         assertThat(httpResponse.getBody(), containsString("keyy"));
         assertThat(httpResponse.getBody(), containsString("vall"));
-        assertThat(httpResponse.getBody(), containsString("some random key"));
-        assertThat(httpResponse.getBody(), containsString("some random value"));
+        assertThat(httpResponse.getBody(), containsString("somerandomkey"));
+        assertThat(httpResponse.getBody(), containsString("somerandomvalue"));
     }
 }

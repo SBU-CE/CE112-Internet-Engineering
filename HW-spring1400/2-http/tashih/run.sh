@@ -51,11 +51,11 @@ cd sandbox/
 
 #echo "-> comiling project"
 find . -name "*.java" > sources.txt
-javac -Xmaxerrs 2 -cp .:junit.jar:j2.jar @sources.txt || terminate
+javac -Xmaxerrs 2 -cp .:junit.jar:j2.jar:json.jar @sources.txt || terminate
 
 #echo "-> running tests"
-#java -cp .:junit.jar:j2.jar org.junit.runner.JUnitCore "MyTest"
-java -cp .:junit.jar:j2.jar TestRunner || true
+java -cp .:junit.jar:j2.jar:json.jar org.junit.runner.JUnitCore "MyTest"
+#java -cp .:junit.jar:j2.jar:json.jar TestRunner || true
 
 cd ../
 

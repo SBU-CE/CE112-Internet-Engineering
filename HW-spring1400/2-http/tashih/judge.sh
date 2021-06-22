@@ -16,7 +16,7 @@ for folder in ./9* ; do
     cp -r main ../sol/
 
     cd ..
-    ./run.sh > /dev/null || true
+    ./run.sh || true
 
     echo ""
     
