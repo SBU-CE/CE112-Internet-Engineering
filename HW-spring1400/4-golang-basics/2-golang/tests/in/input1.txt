@@ -1,0 +1,16 @@
+go 9
+slice
+map
+for
+for range
+function
+STRUCT
+multiple return value
+go routines
+easy cross-compilation
+5
+generic
+SLICE 
+map
+fUnction
+struct

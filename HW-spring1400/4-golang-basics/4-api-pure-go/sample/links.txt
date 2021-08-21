@@ -1,0 +1,12 @@
+download insomnia
+https://github.com/kong/insomnia/releases/
+
+httpie install and examples
+https://github.com/httpie/httpie
+
+curl basics
+https://www.tutorialspoint.com/unix_commands/curl.htm
+
+
+tutorial video link
+https://t.me/SBU_IE_2021/69

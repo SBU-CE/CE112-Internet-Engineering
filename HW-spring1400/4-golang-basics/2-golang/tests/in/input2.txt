@@ -1,0 +1,10 @@
+java 5
+OOP 
+generic 
+collections 
+lambda expressions
+code once, run every where
+3
+oop
+light-weight threads
+multiple-inheritance

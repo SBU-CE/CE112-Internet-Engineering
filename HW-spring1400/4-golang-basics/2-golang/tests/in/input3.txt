@@ -1,0 +1,13 @@
+js 1
+broWser
+10
+Browser
+browser
+broWser
+BROWSER
+BrOwSeR
+type-safety
+speed
+clean code
+static type
+reliablity
