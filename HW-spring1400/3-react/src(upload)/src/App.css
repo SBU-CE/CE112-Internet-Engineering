@@ -1,0 +1,37 @@
+.key {
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  border-radius: 0;
+  font-size: 20px;
+  background-color: #bdc8d0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.key.wide {
+  width: 200px;
+}
+
+.key.blue {
+  background-color: #299bff;
+  color: white;
+}
+
+.key:hover {
+  background-color: #92a4b1;
+}
+
+.key.blue:hover {
+  background-color: #1b8bec;
+}
+
+.screen {
+  height: 100px;
+  width: 400px;
+  background-color: #3b3e41;
+  color: white;
+  padding: 8px;
+  font-size: 24px;
+  box-sizing: border-box;
+}
