@@ -341,7 +341,7 @@ rm -rf .git # get rid of git!
 -   [very good cheat sheet](https://github.com/arslanbilal/git-cheat-sheet)
 -   [this Github io page](https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html)
 -   [command by command explain](https://recompilermag.com/issues/issue-1/how-to-teach-git/)
--   [Jadi's videos](https://faradars.org/courses/fvgit9609-managed-distributed-edition-using-git)
+-   [Jadi's videos](https://faradars.org/courses/fvgit9609-git-github-gitlab)
 -   [step by step](https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html)
 -   [this good slide](https://courses.cs.washington.edu/courses/cse403/13au/lectures/git.ppt.pdf)
 -   [tags](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag)
